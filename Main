@@ -1,10 +1,18 @@
 package year;
 
+
+
+import java.util.Scanner;
+
 public class Main {
+
+	
 	
 	public void evenMonth (){
 	
 		for (Month d : Month.values()){
+			
+			
 			if (Integer.parseInt(d.inDays)%2==0){
 				System.out.println(d.name()+ " day = "+ d.inDays);
 			}
@@ -13,8 +21,11 @@ public class Main {
 		
 	}
 	
+	
 	public void oddMonth (){
 		for (Month d : Month.values()){
+			
+			
 			if (Integer.parseInt(d.inDays)%2==1){
 				System.out.println(d.name()+ " day = "+ d.inDays);
 			}
@@ -26,5 +37,118 @@ public class Main {
 	
 	
 	
+	
+public static void main(String[] args) {
+	
+	
+	System.out.println("take your pick :(only number)\n1 - Check for a month\n2 - show on display all months with the same time of year\n3 - show on display all months that have the same number of days\n4 - show on display all months that have fewer days\n5 - show on display all months that have more days\n6 - show on display next season\n7 - show on display previous season\n8 - show on display all months that have an even number of days\n9 - show on display all months that have an odd number of days\n10 - show on display or put the console has an even number of month days\n11 - exit   ");
+
+	
+
+    int number;
+    boolean flag =  true;
+    Main monthOddEven = new Main();
+    
+    
+	while(flag){
+		Scanner scan= new Scanner(System.in);
+    if(scan.hasNextInt()){
+    	
+    	number=scan.nextInt();
+    	
+		if (number>11||number <1)
+		{
+			System.out.println("---------------------------------------------------------------------------");  
+			System.out.println("your choice is incorrect");
+			System.out.println("---------------------------------------------------------------------------");
+		}
+
+		
+			
+    switch (number){
+    case 1: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("1 - Check for a month");
+    	System.out.println("---------------------------------------------------------------------------");
+    	break;
+    }
+    case 2: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("2 - show on display all months with the same time of year");
+    	System.out.println("---------------------------------------------------------------------------");
+    	break;
+    }
+    case 3: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("3 - show on display all months that have the same number of days");
+    	System.out.println("---------------------------------------------------------------------------");
+    	break;
+    }
+    case 4: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("4 - show on display all months that have fewer days");
+    	System.out.println("---------------------------------------------------------------------------");
+    	break;
+    }
+    case 5: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("5 - show on display all months that have more days");
+    	System.out.println("---------------------------------------------------------------------------");    	
+    	break;
+    }
+    case 6: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("6 - show on display next season");
+    	System.out.println("---------------------------------------------------------------------------");	
+    	break;
+    }
+    case 7: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("7 - show on display previous season");
+    	System.out.println("---------------------------------------------------------------------------");
+    	
+    	break;
+    }
+    case 8: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("8 - show on display all months that have an even number of days");
+    	System.out.println("---------------------------------------------------------------------------");
+    	
+    	break;
+    }
+    case 9: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("9 - show on display all months that have an odd number of days");
+    	System.out.println("---------------------------------------------------------------------------");
+    	monthOddEven.oddMonth();
+    	
+    	break;
+    }
+    case 10: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("10 - show on display or put the console has an even number of month days");
+    	System.out.println("---------------------------------------------------------------------------");
+    	monthOddEven.evenMonth();
+    	break;
+    }
+    case 11: {
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("11 - exit");
+    	System.out.println("---------------------------------------------------------------------------");
+    	flag = false;
+    	break;
+    }
+    }
+    }
+    else{
+    	System.out.println("---------------------------------------------------------------------------");  
+    	System.out.println("error invalid input");
+    	System.out.println("---------------------------------------------------------------------------");
+    }
+    
+    	
+    
+    }
+}
 	
 }
