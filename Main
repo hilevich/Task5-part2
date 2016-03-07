@@ -6,7 +6,7 @@ public class Main {
 	
 		for (Month d : Month.values()){
 			if (Integer.parseInt(d.inDays)%2==0){
-				System.out.println(d.name());
+				System.out.println(d.name()+ " day = "+ d.inDays);
 			}
 		
 		}
@@ -16,7 +16,7 @@ public class Main {
 	public void oddMonth (){
 		for (Month d : Month.values()){
 			if (Integer.parseInt(d.inDays)%2==1){
-				System.out.println(d.name());
+				System.out.println(d.name()+ " day = "+ d.inDays);
 			}
 			
 		}
