@@ -1,9 +1,28 @@
 package year;
 
-
-
 public class Main {
 	
+	public void evenMonth (){
+	
+		for (Month d : Month.values()){
+			if (Integer.parseInt(d.inDays)%2==0){
+				System.out.println(d.name());
+			}
+		
+		}
+		
+	}
+	
+	public void oddMonth (){
+		for (Month d : Month.values()){
+			if (Integer.parseInt(d.inDays)%2==1){
+				System.out.println(d.name());
+			}
+			
+		}
+		
+		
+	}
 	
 	
 	
