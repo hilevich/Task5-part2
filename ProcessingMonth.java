@@ -16,25 +16,28 @@ public class ProcessingMonth {
 	 */
 	public Month readMonth() {
 		while (true) {
-			if (sc.hasNextInt()) {
+			if (!(sc.hasNextInt())) {				
+				String s = sc.nextLine().trim();					
+				for (Month month : Month.values()) {
+					if (s.equalsIgnoreCase(month.name())) {						
+						return month;						
+					}											
+				}
+				System.out.println("The word you entered is not \nthe name of the month, try again");	
+				sc = new Scanner(System.in);
+			} else {
 				int m = sc.nextInt();
 				if (m > 12 || m < 1) {
 					System.out.println("You entered the wrong month, try again.");
-				}
-				for (Month month : Month.values()) {
-					if (m == month.ordinal() + 1) {
-						return month;
+					sc = new Scanner(System.in);
+				} else {
+					for (Month month : Month.values()) {
+						if (m == month.ordinal() + 1) {
+							return month;
+						}
 					}
-				}
-			} else {
-				String s = sc.nextLine().trim();
-				for (Month month : Month.values()) {
-					if (s.equalsIgnoreCase(month.name())) {
-						return month;
-					}
-				}
-				System.out.println("The word you entered is not \nthe name of the month, try again");
-			}
+				}				
+			}			
 		}
 	}
 
