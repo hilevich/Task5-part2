@@ -3,6 +3,8 @@ package year;
 
 
 import java.util.Scanner;
+import year.Season.Seasons;
+import year.Season.Seasons.Month;
 
 public class Main {
 
