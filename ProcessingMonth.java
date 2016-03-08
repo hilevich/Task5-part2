@@ -1,6 +1,8 @@
 package year;
 
 import java.util.Scanner;
+import year.Season.Seasons;
+import year.Season.Seasons.Month;
 /**
  * Operations with Month enum that are entered from the keyboard.
  *  
