@@ -1,6 +1,8 @@
-/** List of Seasons, Monthes and amount of days in monthes
+/* List of Seasons, Monthes and amount of days in monthes
  * @author Oleksandr Semochko
- * @param Season(Month month, Seasons inSeasons, int inDays)
+ * @param Season.Seasons.WINTER  - name of the season
+ * @param Season.Seasons.Month.FEBRUARY  - name of the month
+ * @param Season.Seasons.Month.FEBRUARY.inDays  - amount of days in month
  */
 
 package year;
