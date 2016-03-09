@@ -1,3 +1,10 @@
+/*
+ * Emum of Monthes with days;
+ *  
+ * @author Oleksandr Semochko;
+ * @param emun of Monthes with days Month(int inDays,	String inSeasons);
+ */
+
 package year;
 
 public enum Month {
