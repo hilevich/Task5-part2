@@ -1,5 +1,7 @@
 package year;
 
+import year.Season.Seasons.Month;
+
 public class Season {
 	
 
@@ -8,8 +10,8 @@ public class Season {
 		WINTER, 
 		SPRING, 
 		SUMMER, 
-		AUTHEM;
-	}
+		AUTUMN;
+	
 	
 	public enum Month {
 		
@@ -26,8 +28,24 @@ public class Season {
 		NOVEMBER(30,"WINTER"), 
 		DECEMBER(31,"WINTER");
 		
-		
+		public int getInDays() {
+			return inDays;
+		}
+
+		public void setInDays(int inDays) {
+			this.inDays = inDays;
+		}
+
+		public String getInSeasons() {
+			return inSeasons;
+		}
+
+		public void setInSeasons(String inSeasons) {
+			this.inSeasons = inSeasons;
+		}
+
 		public int inDays;
+		
 		public String inSeasons;
 		
 		Month(int inDays, String inSeasons) {
@@ -36,13 +54,13 @@ public class Season {
 			this.inSeasons = inSeasons;
 			
 		}
-		
+	}	
 	}
 	public int inDays;
 	public Month month;
     public Seasons inSeasons;
     
-
+	
     public Season(Month month, Seasons inSeasons, int inDays) {
         this.month = month;
         this.inSeasons = inSeasons;
@@ -53,3 +71,4 @@ public class Season {
 	
 	
 }
+
