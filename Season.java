@@ -1,3 +1,8 @@
+/** List of Seasons, Monthes and amount of days in monthes
+ * @author Oleksandr Semochko
+ * @param Season(Month month, Seasons inSeasons, int inDays)
+ */
+
 package year;
 
 import year.Season.Seasons.Month;
