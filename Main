@@ -1,21 +1,141 @@
+/**
+ * Написати консольну програму для роботи з Enums. Створити енум
+ * Сезони, в якому оголосити такі константи : Зима , Весна, Літо, Осінь.
+ * Створити енум Місяці, в якому створити 12 констант- місяці року(Січень ,
+ * Лютий,Грудень ), оголосити змінну днів, та змінну сезону типу Сезон , як
+ * поле енума . Створити конструктор з визначеними параметрами в енумі
+ * Місяці, в який як параметри передати змінну дні та сезон. Описати getters
+ * до даних полів (дні, сезони). Створити консольне меню, в якому реалізувати
+ * наступні пункти :
+ * 
+ * Перевірити чи є такий місяць (місяць вводимо з консолі, передбачити,
+щоб регістр букв був не важливим )
+• Вивести всі місяці з такою ж порою року
+• Вивести всі місяці які мають таку саму кількість днів
+• Вивести на екран всі місяці які мають меншу кількість днів
+• Вивести на екран всі місяці які мають більшу кількість днів
+• Вивести на екран наступну пору року
+• Вивести на екран попередню пору року
+• Вивести на екран всі місяці які мають парну кількість днів																																CURSOR	EDIUCATION	2016	
+• Вивести на екран всі місяці які мають непарну кількість днів
+• Вивести на екран чи введений з консолі місяць має парну кількість
+днів
+ * 
+ * @version 1.0
+ * @author Yura
+*/
+
+
 package year;
 
 
 
 import java.util.Scanner;
-import year.Season.Seasons;
-import year.Season.Seasons.Month;
+
+
+
 
 public class Main {
 
 	
 	
+		/** The method below shows all the months with the specified number of days.
+		 * @author SiaKovalina
+		 * @param specifiedNumber
+		 */
+		public void withSpecifiedNumberOfDays(int specifiedNumber){
+				for (Month m : Month.values()){
+					if (m.inDays == specifiedNumber){
+						System.out.println(m.toString());
+					}
+				}	
+			}
+		/**The method below shows all the months with number of days greater than the specified value.
+		 *@author SiaKovalina
+		 * @param specifiedNumber
+		 */
+			public void withGreaterNumberOfDays(int specifiedNumber){
+			String s = null;
+				
+				for (Month m : Month.values()){
+					if (m.inDays > specifiedNumber){
+						System.out.println(m.toString());
+						s=m.toString();
+						
+					}
+				}
+				if (s==null){
+					System.out.println("not more Great month");
+				}
+				
+			}
+		/**The method below shows all the months with number of days smaller than specified number.
+		 * @author SiaKovalina	
+		 * @param specifiedNumber
+		 */	
+			public void withSmallerNumberOfDays(int specifiedNumber){
+				
+				String s = null;
+				for (Month m : Month.values()){
+					if (m.inDays < specifiedNumber){
+						System.out.println(m.toString());
+						s=m.toString();
+					}
+				}	
+				if (s==null){
+					System.out.println("not more Small month");
+				}
+				
+			}
+
+			/** The method show on display the next season.
+			 * @author Hilevic
+			 * @param month
+			 */
+			
+		public void nexSeasons (Month month){
+		int i = 0;
+		String[] d =  {"WINTER","SPRING","SUMMER","AUTUMN"};
+		for (Seasons seas : Seasons.values()){
+			i++;
+			if(month.inSeasons.equals(seas.name())){
+				System.out.println("next seasons is "+d[i+1]);
+			}
+		}
+		
+	}
+		
+		/** The method show on display past season.
+		 * @author Hilevic
+		 * @param month
+		 */
+	
+	public void pastSeasons(Month month){
+		int i = 0;
+		String[] d =  {"WINTER","SPRING","SUMMER","AUTUMN"};
+		for (Seasons seas : Seasons.values()){
+			i++;
+			if(month.inSeasons.equals(seas.name())){
+				System.out.println("next past is "+d[i-1]);
+			}
+		}	
+	}
+	
+	
+	
+
+
+
+
+	/** The method show on display all months that have an odd number of days.
+	 * @author Hilevic
+	 */
 	public void evenMonth (){
 	
 		for (Month d : Month.values()){
 			
 			
-			if (Integer.parseInt(d.inDays)%2==0){
+			if (d.inDays%2==0){
 				System.out.println(d.name()+ " day = "+ d.inDays);
 			}
 		
@@ -23,12 +143,14 @@ public class Main {
 		
 	}
 	
-	
+	/** The method show on display all months that have an even number of days.
+	 * @author Hilevic
+	 */
 	public void oddMonth (){
 		for (Month d : Month.values()){
 			
 			
-			if (Integer.parseInt(d.inDays)%2==1){
+			if (d.inDays%2==1){
 				System.out.println(d.name()+ " day = "+ d.inDays);
 			}
 			
@@ -42,14 +164,17 @@ public class Main {
 	
 public static void main(String[] args) {
 	
+	//String monthMain;
 	
-	System.out.println("take your pick :(only number)\n1 - Check for a month\n2 - show on display all months with the same time of year\n3 - show on display all months that have the same number of days\n4 - show on display all months that have fewer days\n5 - show on display all months that have more days\n6 - show on display next season\n7 - show on display previous season\n8 - show on display all months that have an even number of days\n9 - show on display all months that have an odd number of days\n10 - show on display or put the console has an even number of month days\n11 - exit   ");
+	ProcessingMonth month = new ProcessingMonth();
+	
+	System.out.println("take your pick :(only number)\n1 - Check for a month\n2 - show on display all months with the same time of year\n3 - show on display if put the console month has an even number of days\n4 - show on display all months that have the equal number of days\n5 - show on display all months that have more Great days\n6 - show on display all months that have fewer days\n7 - show on display Display the next season\n8 - show on display past season\n9 - show on display all months that have an odd number of days\n10 - show on display or put the console has an even number of month days\n11 - exit   ");
 
 	
 
     int number;
     boolean flag =  true;
-    Main monthOddEven = new Main();
+    Main monthMain = new Main();
     
     
 	while(flag){
@@ -72,78 +197,106 @@ public static void main(String[] args) {
     	System.out.println("---------------------------------------------------------------------------");  
     	System.out.println("1 - Check for a month");
     	System.out.println("---------------------------------------------------------------------------");
+    	System.out.println("enter the month"); 
+    	
+    	month.readMonth();
+    	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 2: {
     	System.out.println("---------------------------------------------------------------------------");  
     	System.out.println("2 - show on display all months with the same time of year");
     	System.out.println("---------------------------------------------------------------------------");
+    	System.out.println("enter the month");
+    	month.sameSeasonMonths(month.readMonth());
+    	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 3: {
     	System.out.println("---------------------------------------------------------------------------");  
-    	System.out.println("3 - show on display all months that have the same number of days");
+    	System.out.println("3 - show on display if put the console month has an even number of days");
     	System.out.println("---------------------------------------------------------------------------");
+    	System.out.println("enter the month");
+    	month.isEvenNumberOfDays(month.readMonth());
+    	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 4: {
     	System.out.println("---------------------------------------------------------------------------");  
-    	System.out.println("4 - show on display all months that have fewer days");
+    	System.out.println("4 - show on display all months that have the equal number of days");
     	System.out.println("---------------------------------------------------------------------------");
+    	System.out.println("enter the month");
+    	monthMain.withSpecifiedNumberOfDays(month.readMonth().inDays);
+    	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 5: {
     	System.out.println("---------------------------------------------------------------------------");  
-    	System.out.println("5 - show on display all months that have more days");
-    	System.out.println("---------------------------------------------------------------------------");    	
+    	System.out.println("5 - show on display all months that have more Great days");
+    	System.out.println("---------------------------------------------------------------------------");   
+    	System.out.println("enter the month");
+    	monthMain.withGreaterNumberOfDays(month.readMonth().inDays);
+    	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 6: {
     	System.out.println("---------------------------------------------------------------------------");  
-    	System.out.println("6 - show on display next season");
+    	System.out.println("6 - show on display all months that have fewer days");
     	System.out.println("---------------------------------------------------------------------------");	
+    	System.out.println("enter the month");
+    	monthMain.withSmallerNumberOfDays(month.readMonth().inDays);
+    	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 7: {
     	System.out.println("---------------------------------------------------------------------------");  
-    	System.out.println("7 - show on display previous season");
+    	System.out.println("7 - show on display the next season");
     	System.out.println("---------------------------------------------------------------------------");
+    	System.out.println("enter the month");
+    	monthMain.nexSeasons(month.readMonth());
     	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 8: {
     	System.out.println("---------------------------------------------------------------------------");  
-    	System.out.println("8 - show on display all months that have an even number of days");
+    	System.out.println("8 - show on display past season");
     	System.out.println("---------------------------------------------------------------------------");
+    	System.out.println("enter the month");
+    	monthMain.nexSeasons(month.readMonth());
     	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 9: {
     	System.out.println("---------------------------------------------------------------------------");  
     	System.out.println("9 - show on display all months that have an odd number of days");
     	System.out.println("---------------------------------------------------------------------------");
-    	monthOddEven.oddMonth();
+    	monthMain.oddMonth();
     	
-    	break;
-    }
-    case 29: {
-    	System.out.println("---------------------------------------------------------------------------");  
-    	System.out.println("***** PROGR@M H@CKed ");
-    	System.out.println((Season.Seasons.Month.FEBRUARY) + " on a leap year has " + (Season.Seasons.Month.FEBRUARY.inDays+1) +" days");
-    	System.out.println("---------------------------------------------------------------------------");
+    	System.out.println("Select the next step");  
     	break;
     }
     case 10: {
     	System.out.println("---------------------------------------------------------------------------");  
     	System.out.println("10 - show on display or put the console has an even number of month days");
     	System.out.println("---------------------------------------------------------------------------");
-    	monthOddEven.evenMonth();
+    	monthMain.evenMonth();
+    	
+    	System.out.println("Select the next step");  
     	break;
     }
     case 11: {
     	System.out.println("---------------------------------------------------------------------------");  
     	System.out.println("11 - exit");
     	System.out.println("---------------------------------------------------------------------------");
+    	
     	flag = false;
     	break;
     }
