@@ -1,3 +1,10 @@
+/*
+ * Emum of Seasons of the year
+ *  
+ * @author Oleksandr Semochko
+ * @param list of Seasons of the year Seasons()
+ */
+
 package year;
 
 
